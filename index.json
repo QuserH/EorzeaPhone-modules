@@ -6,7 +6,8 @@
       "version": "1.0.1",
       "description": "示例模块：查询本地物品库",
       "sha256": "df6e1088699d195f1d90d292e4314b63dc62704dc47a4a96b83082119d28e05f",
-      "path": "packages/sample-items-1.0.1.zip"
+      "path": "packages/sample-items-1.0.1.zip",
+      "source": "modules/sample-items"
     }
   ]
 }
