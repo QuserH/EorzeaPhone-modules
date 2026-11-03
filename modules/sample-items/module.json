@@ -1,7 +1,7 @@
 {
   "id": "sample-items",
   "name": "物品搜索",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "示例模块：查询本地物品库",
   "entryClass": "com.quserh.eorzeaphone.module.sample.SampleEntry"
 }
