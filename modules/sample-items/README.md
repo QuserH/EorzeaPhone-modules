@@ -1,10 +1,6 @@
 # 物品搜索（示例模块）
 
-源码公开，便于审核。构建方式：
+源码随包提交，审核通过后由 GitHub Actions 自动编译为 dex 并发布。
 
-1. 用 Android SDK 编译 `:module:assembleRelease`（compileOnly 依赖宿主 API，不打包进 dex）。
-2. 取出 `module/build/intermediates/aar_main_jar/release/syncReleaseLibJars/classes.jar`。
-3. `d8 --release --min-api 24 --lib <sdk>/platforms/android-36/android.jar --output out classes.jar`
-4. 打包 `classes.dex` + `manifest.json` 为 zip，计算 sha256 后更新仓库 index.json。
-
-模块只通过 `ModuleHost.searchItems/itemById` 读取物品库，不访问角色、聊天或石之家数据。
+- UI：系统 View（android.widget.*），跨 dex 加载不受 R8 改名影响。
+- 数据：只通过 `ModuleHost.searchItems/itemById` 查询物品库。
