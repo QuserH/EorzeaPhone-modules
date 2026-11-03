@@ -18,12 +18,18 @@ for module_dir in sorted(os.listdir("modules")):
     dex = os.path.join(out_root, module_dir, "classes.dex")
     if not os.path.isfile(dex):
         raise SystemExit(f"missing dex for {module_dir}")
-    pkg_name = f"{meta['id']}-{meta['version']}.zip"
-    pkg_path = os.path.join("packages", pkg_name)
-    with zipfile.ZipFile(pkg_path, "w", zipfile.ZIP_DEFLATED) as z:
+    import tempfile
+
+    with tempfile.NamedTemporaryFile(suffix=".zip", delete=False) as tmp:
+        tmp_path = tmp.name
+    with zipfile.ZipFile(tmp_path, "w", zipfile.ZIP_DEFLATED) as z:
         z.write(dex, "classes.dex")
         z.writestr("manifest.json", json.dumps(meta, ensure_ascii=False, indent=2))
-    sha = hashlib.sha256(open(pkg_path, "rb").read()).hexdigest()
+    sha = hashlib.sha256(open(tmp_path, "rb").read()).hexdigest()
+    # 文件名带内容哈希：CDN 缓存与索引永远不会指向不同内容。
+    pkg_name = f"{meta['id']}-{meta['version']}-{sha[:12]}.zip"
+    pkg_path = os.path.join("packages", pkg_name)
+    os.replace(tmp_path, pkg_path)
     entries.append({
         "id": meta["id"],
         "name": meta["name"],
