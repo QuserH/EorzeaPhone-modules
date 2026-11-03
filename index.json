@@ -5,8 +5,8 @@
       "name": "物品搜索",
       "version": "1.0.1",
       "description": "示例模块：查询本地物品库",
-      "sha256": "48de8a7848101cd48efdeafe10c4cb9a0d048640e6b822cc139cff041272e511",
-      "path": "packages/sample-items-1.0.1.zip",
+      "sha256": "2636a498bc89eb960fe9747e22515081deab342c9eb4c329dd30108619aac8be",
+      "path": "packages/sample-items-1.0.1-2636a498bc89.zip",
       "source": "modules/sample-items"
     }
   ]
