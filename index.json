@@ -3,10 +3,10 @@
     {
       "id": "sample-items",
       "name": "物品搜索",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "示例模块：查询本地物品库",
-      "sha256": "2636a498bc89eb960fe9747e22515081deab342c9eb4c329dd30108619aac8be",
-      "path": "packages/sample-items-1.0.1-2636a498bc89.zip",
+      "sha256": "b375dff05b8e6f5846e127b1ea2b07d749c1f768d2af71e0aeacc4a70bfd30dd",
+      "path": "packages/sample-items-1.0.2-b375dff05b8e.zip",
       "source": "modules/sample-items"
     }
   ]
